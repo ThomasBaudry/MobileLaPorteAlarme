@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/home_title"
+        style="@style/DefaultTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin_title"
+        android:text="@string/home_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_setAlarme"
+        android:layout_width="370dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="@dimen/default_margin_title"
+        android:drawableTop="@drawable/ic_vec_alarme_on"
+        android:gravity="center_vertical"
+        android:text="@string/home_alarme_on"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_title" />
+
+    <Button
+        android:id="@+id/btn_logs"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="20dp"
+        android:drawableTop="@drawable/ic_vec_logs"
+        android:gravity="center_vertical"
+        android:text="@string/logs"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_setAlarme" />
+
+    <Button
+        android:id="@+id/btn_profil"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:drawableTop="@drawable/ic_vec_profil"
+        android:gravity="center_vertical"
+        android:text="@string/profil"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintStart_toEndOf="@+id/btn_logs"
+        app:layout_constraintTop_toBottomOf="@+id/btn_setAlarme" />
+
+    <TextView
+        android:id="@+id/label_date"
+        style="@style/DefaultTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/home_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_logs" />
+    <TextView
+        android:id="@+id/label_hour"
+        style="@style/DefaultTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/home_hour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_date" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:drawableTop="@drawable/ic_vec_logout"
+        android:gravity="center_vertical"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
