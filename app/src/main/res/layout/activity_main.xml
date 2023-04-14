@@ -22,7 +22,7 @@
         android:layout_width="370dp"
         android:layout_height="180dp"
         android:layout_marginTop="@dimen/default_margin_title"
-        android:drawableTop="@drawable/ic_vec_alarme_on"
+        android:drawableLeft="@drawable/ic_vec_alarme_on"
         android:gravity="center_vertical"
         android:text="@string/home_alarme_on"
         android:textSize="20sp"

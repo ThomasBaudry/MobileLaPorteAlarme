@@ -4,6 +4,7 @@
     <!-- Accueil -->
     <string name="home_title">ALARME LA PORTE</string>
     <string name="home_alarme_on">Alarme Activé</string>
+    <string name="home_alarme_off">Alarme Desactivé</string>
     <string name="logs">Logs</string>
     <string name="profil">Profil</string>
     <string name="home_hour">12:00</string>
