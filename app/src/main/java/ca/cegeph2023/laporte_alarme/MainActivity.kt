@@ -52,29 +52,31 @@ class MainActivity : AppCompatActivity() {
         }, delay)
 
         val btnProfil: Button = findViewById(R.id.btn_profil)
-        btnProfil.text = "COUCOU"
-        val serverUri = "tcp://172.16.5.202:2222"
+        val serverUri = "tcp://172.16.5.202:1883"
         val clientId = "pi"
         val topic = "LaPorte/detection"
         val qos = 2 // Quality of Service
 
-
-
         // Créer un client MQTT
-
         try {
             val client = MqttAndroidClient(this, serverUri, clientId)
             // Configurer une callback pour la réception des messages
+            val options = MqttConnectOptions()
+            options.isCleanSession = true
+            options.keepAliveInterval = 60
+            options.connectionTimeout = 30
+            options.isCleanSession = true
             client.setCallback(object : MqttCallbackExtended {
                 override fun connectComplete(reconnect: Boolean, serverURI: String?) {
                     // Connecté au broker
+
                     client.subscribe(topic, qos)
-                    btnProfil.text = "GOOD"
+                    println("MQTT Connection : Complete")
                 }
 
                 override fun connectionLost(cause: Throwable?) {
                     // Connexion perdue
-                    btnProfil.text = "NOT GOOD"
+                    println("MQTT Connection : Lost")
                 }
 
                 override fun messageArrived(topic: String?, message: MqttMessage?) {
@@ -82,21 +84,32 @@ class MainActivity : AppCompatActivity() {
                     val payload = message?.payload
                     // Faire quelque chose avec le message reçu
                     btnProfil.text = message?.toString()
+                    println("MQTT Message: " + message?.toString())
 
                 }
 
                 override fun deliveryComplete(token: IMqttDeliveryToken?) {
                     // Message délivré
+                    println("MQTT Delivery")
+                }
+            })
+            client.connect(options, this, object : IMqttActionListener {
+                override fun onSuccess(asyncActionToken: IMqttToken?) {
+                    // Connexion réussie
+                    println("MQTT Connection : Reussie")
+                }
+
+                override fun onFailure(asyncActionToken: IMqttToken?, exception: Throwable?) {
+                    // Connexion échouée
+                    println("MQTT Connection : Failed")
+                    exception?.printStackTrace()
                 }
             })
 
             // Connecter au broker
-            val options = MqttConnectOptions()
-            client.connect(options)
         } catch (ex: MqttException) {
             // Gérer l'exception et imprimer le code d'erreur
-            println("Erreur de connexion au broker MQTT: ${ex.reasonCode}")
-            btnProfil.text = "VERY NOT GOOD"
+            println("MQTT Connection : Erreur de connexion au broker MQTT: ${ex.reasonCode}")
         }
 
     }
