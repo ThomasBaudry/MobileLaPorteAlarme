@@ -64,6 +64,7 @@
         android:text="@string/home_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_logs" />
+
     <TextView
         android:id="@+id/label_hour"
         style="@style/DefaultTitleStyle"
@@ -75,23 +76,23 @@
         app:layout_constraintTop_toBottomOf="@+id/label_date" />
 
     <TextView
-        android:id="@+id/label_test"
-        style="@style/DefaultTitleStyle"
+        android:id="@+id/label_alarmeState"
+        style="@style/hidden"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text=":D"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_hour" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />" />
 
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_margin="20dp"
+        android:background="@drawable/rounded_button_background"
         android:drawableTop="@drawable/ic_vec_logout"
         android:gravity="center_vertical"
-        android:background="@drawable/rounded_button_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

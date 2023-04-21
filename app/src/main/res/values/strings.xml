@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">LaPorte_Alarme</string>
 
-    <!-- Accueil -->
+    <!-- Affichage -->
     <string name="home_title">ALARME LA PORTE</string>
     <string name="home_alarme_on">Alarme Activé</string>
     <string name="home_alarme_off">Alarme Desactivé</string>
@@ -9,6 +9,8 @@
     <string name="profil">Profil</string>
     <string name="home_hour">12:00</string>
     <string name="home_date">1er Janvier 2000</string>
+    <string name="alarme_intru">Intrusion!</string>
+    <string name="alarme_dismiss">Fermer</string>
 
     <!-- URL API -->
     <string name="api_url">http://10.0.2.2:80/api_Alarme?action=obtenirLesLogs</string>

@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.TableLayout
 import android.widget.TableRow
@@ -28,10 +30,34 @@ data class Logs(
     val hour: String,
     val description: String
 )
+
+interface AlarmeStateChangeListener {
+    fun AlarmeStateChanged(newValue: Boolean)
+}
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Detection Declenchement Alarme
+        val alarmeState = findViewById<TextView>(R.id.label_alarmeState)
+        alarmeState.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                // Le texte a été modifié
+                println("Le texte a été modifié : $s")
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Avant que le texte ne soit modifié
+                val intent = Intent(this@MainActivity, AlarmeActivity::class.java)
+                startActivity(intent)
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Pendant que le texte est modifié
+            }
+        })
 
         // Button Alarme OFF/ON
         val btnAlarm: Button = findViewById(R.id.btn_setAlarme)
@@ -106,7 +132,9 @@ class MainActivity : AppCompatActivity() {
                     // Message reçu
                     val payload = message?.payload
                     // Faire quelque chose avec le message reçu
-                    btnProfil.text = message?.toString()
+                    if(message?.toString() == "Mouvement detecter") {
+                        alarmeState.text = message?.toString()
+                    }
                     println("MQTT Message: " + message?.toString())
 
                 }
