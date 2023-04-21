@@ -1,24 +1,40 @@
 package ca.cegeph2023.laporte_alarme
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import android.os.Handler
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
+import android.widget.Button
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
+import org.json.JSONArray
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
+import org.json.JSONObject
 
-
+data class Logs(
+    val id: String,
+    val date: String,
+    val hour: String,
+    val description: String
+)
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Button Alarme OFF/ON
         val btnAlarm: Button = findViewById(R.id.btn_setAlarme)
-
-
         btnAlarm.setOnClickListener {
             if (btnAlarm.isSelected) {
                 btnAlarm.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_vec_alarme_on, 0, 0, 0)
@@ -31,14 +47,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Button Logs
+        val btnLogs: Button = findViewById(R.id.btn_logs)
+        btnLogs.setOnClickListener {
+            val intent = Intent(this, LogsActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Affiche la Date et Heure actuel.
         val handler = Handler()
         val delay = 1000L
         val dateTimeLabel = findViewById<TextView>(R.id.label_date)
         val hourTimeLabel = findViewById<TextView>(R.id.label_hour)
         val dateFormat = SimpleDateFormat("d MMMM yyyy", Locale.CANADA_FRENCH)
         val hourFormat = SimpleDateFormat("hh:mm", Locale.CANADA_FRENCH)
-
-
         handler.postDelayed(object : Runnable {
             override fun run() {
                 val timeZone = TimeZone.getTimeZone("America/New_York")
@@ -51,6 +73,7 @@ class MainActivity : AppCompatActivity() {
             }
         }, delay)
 
+        // Appel au Broker MQTT
         val btnProfil: Button = findViewById(R.id.btn_profil)
         val serverUri = "tcp://172.16.5.202:1883"
         val clientId = "pi"
