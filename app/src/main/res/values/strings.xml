@@ -14,4 +14,9 @@
 
     <!-- URL API -->
     <string name="api_url">http://10.0.2.2:80/api_Alarme?action=obtenirLesLogs</string>
+
+    <!-- INFO BROKER MQTT -->
+    <string name="mqtt_url">tcp://172.16.5.202:1883</string>
+    <string name="mqtt_client">pi</string>
+    <string name="mqtt_topic">LaPorte/detection</string>
 </resources>

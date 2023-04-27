@@ -1,3 +1,18 @@
+/* Copyright (C) 2023 LaPorte/EPEE
+ * All rights reserved.
+ *
+ * Projet Alarme LaPorte
+ * Laporte & EPEE
+
+    @fichier     LogsActivity.kt
+    @auteur      @ThomasBaudry
+    @date        2023-04-27
+    @description
+                Ce fichier sert d'activité pour voir la liste des Logs.
+                * Appel l'API pour récupèrer les différents Logs.
+                * Display la liste dans un tableau.
+
+*/
 package ca.cegeph2023.laporte_alarme
 
 import android.os.Build
@@ -19,7 +34,7 @@ class LogsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_logs)
 
-        // Appel API
+        // Appel à l'API pour récupéré les logs.
         fun makeHttpRequest(urlString: String): String {
             if (Build.VERSION.SDK_INT > 9) {
                 val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
