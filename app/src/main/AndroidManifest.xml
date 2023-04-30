@@ -20,8 +20,12 @@
             android:name=".AlarmeActivity"
             android:exported="false" />
         <activity
+            android:name=".ProfilActivity"
+            android:exported="false" />
+        <activity
             android:name=".LogsActivity"
-            android:exported="false">
+            android:exported="false"
+            tools:ignore="AppLinkUrlError">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>

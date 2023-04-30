@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LogsActivity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -31,7 +31,7 @@
                 android:background="@color/gray">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="14dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Date"
@@ -39,7 +39,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Heure"
@@ -47,7 +47,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="4dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:text="Description"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="Retour" />
+            android:text="@string/retour" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

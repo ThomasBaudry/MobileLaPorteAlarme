@@ -84,6 +84,9 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // Avant que le texte ne soit modifié
                 if (!btnAlarm.isSelected) {
+                    btnAlarm.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_vec_alarme_off, 0, 0, 0)
+                    btnAlarm.text = getString(R.string.home_alarme_off)
+                    btnAlarm.isSelected = true
                     val intent = Intent(this@MainActivity, AlarmeActivity::class.java)
                     startActivity(intent)
                 }
@@ -110,6 +113,12 @@ class MainActivity : AppCompatActivity() {
         // Button Logs
         btnLogs.setOnClickListener {
             val intent = Intent(this, LogsActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Button Profil
+        btnProfil.setOnClickListener {
+            val intent = Intent(this, ProfilActivity::class.java)
             startActivity(intent)
         }
 

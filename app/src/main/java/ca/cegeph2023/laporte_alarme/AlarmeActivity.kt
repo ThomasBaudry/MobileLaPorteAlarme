@@ -19,19 +19,68 @@
 */
 package ca.cegeph2023.laporte_alarme
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.StrictMode
 import android.widget.Button
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
 
 class AlarmeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarme)
+        // Variable des Buttons
+        val btnDismiss: Button = findViewById<Button>(R.id.btn_dismiss)
+
+        // Appel API pour ajouter un LOG
+        fun makeHttpRequest(urlString: String): String {
+            if (Build.VERSION.SDK_INT > 9) {
+                val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+                StrictMode.setThreadPolicy(policy)
+            }
+
+            val url = URL(urlString)
+            val connection = url.openConnection() as HttpURLConnection
+            connection.requestMethod = "GET"
+            connection.connectTimeout = 5000
+            connection.readTimeout = 5000
+            connection.connect()
+
+            val responseCode = connection.responseCode
+            val inputStream = if (responseCode == HttpURLConnection.HTTP_OK) {
+                println("Connection API: OK")
+                connection.inputStream
+            } else {
+                println("Connection API: ERROR")
+                connection.errorStream
+            }
+
+            val bufferedReader = BufferedReader(InputStreamReader(inputStream))
+            val stringBuilder = StringBuilder()
+            var line: String? = bufferedReader.readLine()
+            while (line != null) {
+                stringBuilder.append(line).append("\n")
+                line = bufferedReader.readLine()
+            }
+
+            bufferedReader.close()
+            inputStream.close()
+            connection.disconnect()
+
+            return stringBuilder.toString()
+        }
 
         // Bouton de retour à l'accueil.
-        val btnDismiss: Button = findViewById<Button>(R.id.btn_dismiss)
+
         btnDismiss.setOnClickListener {
             finish()
         }
+
+        val reponseApi: String = makeHttpRequest(getString(R.string.api_url)+getString(R.string.api_action_addLog))
+        println(reponseApi)
     }
 }

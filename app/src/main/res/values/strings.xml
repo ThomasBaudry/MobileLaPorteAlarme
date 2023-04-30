@@ -11,9 +11,16 @@
     <string name="home_date">1er Janvier 2000</string>
     <string name="alarme_intru">Intrusion!</string>
     <string name="alarme_dismiss">Fermer</string>
+    <string name="retour">Retour</string>
+    <string name="courrielLabel">Courriel</string>
+    <string name="nomLabel">Nom</string>
+    <string name="courrielEntry">thomasBaudry@cegep.ca</string>
+    <string name="nomEntry">Thomas Baudry</string>
 
     <!-- URL API -->
-    <string name="api_url">http://10.0.2.2:80/api_Alarme?action=obtenirLesLogs</string>
+    <string name="api_url">http://10.0.2.2:80/api_Alarme?action=</string>
+    <string name="api_action_getListLogs">obtenirLesLogs</string>
+    <string name="api_action_addLog">ajouterUnLog</string>
 
     <!-- INFO BROKER MQTT -->
     <string name="mqtt_url">tcp://172.16.5.202:1883</string>

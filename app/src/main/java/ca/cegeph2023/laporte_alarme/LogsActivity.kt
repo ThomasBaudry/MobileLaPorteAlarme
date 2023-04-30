@@ -108,7 +108,7 @@ class LogsActivity : AppCompatActivity() {
             }
         }
 
-        val reponseApi: String = makeHttpRequest(getString(R.string.api_url))
+        val reponseApi: String = makeHttpRequest(getString(R.string.api_url)+getString(R.string.api_action_getListLogs))
         println(reponseApi)
         //Gestion JSON
         val jsonArray = JSONArray(reponseApi)
