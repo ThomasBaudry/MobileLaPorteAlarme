@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogsActivity">
+
+    <TextView
+        android:id="@+id/courrielLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/courrielLabel"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/courrielEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/courrielLabel"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/courrielLabel"
+        android:text="@string/courrielEntry"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courrielLabel" />
+
+    <TextView
+        android:id="@+id/nomLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/courrielEntry"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/nomLabel"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courrielEntry" />
+
+    <TextView
+        android:id="@+id/nomEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/nomLabel"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/nomLabel"
+        android:text="@string/nomEntry"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomLabel" />
+
+    <Button
+        android:id="@+id/ButtonRetour"
+        android:layout_width="123dp"
+        android:layout_height="61dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="144dp"
+        android:layout_marginBottom="44dp"
+        android:text="@string/retour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
