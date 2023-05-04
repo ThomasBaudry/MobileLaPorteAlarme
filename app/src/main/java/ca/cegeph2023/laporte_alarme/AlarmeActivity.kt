@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
 import android.widget.Button
+import android.widget.TextView
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
@@ -33,8 +34,19 @@ class AlarmeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarme)
-        // Variable des Buttons
+        // Variable
+        val langue = intent.getStringExtra("langue")
         val btnDismiss: Button = findViewById<Button>(R.id.btn_dismiss)
+        val title_app = findViewById<TextView>(R.id.title_alarme)
+
+        //Affichage du texte avec la langue selectionné
+        if(langue == "French"){
+            btnDismiss.text = getString(R.string.alarme_dismiss_fr)
+            title_app.text = getString(R.string.home_title_fr)
+        }else{
+            btnDismiss.text = getString(R.string.alarme_dismiss_en)
+            title_app.text = getString(R.string.home_title_en)
+        }
 
         // Appel API pour ajouter un LOG
         fun makeHttpRequest(urlString: String): String {
@@ -75,7 +87,6 @@ class AlarmeActivity : AppCompatActivity() {
         }
 
         // Bouton de retour à l'accueil.
-
         btnDismiss.setOnClickListener {
             finish()
         }

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin_title"
-        android:text="@string/home_title"
+        android:text="@string/home_title_fr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:layout_marginTop="@dimen/default_margin_title"
         android:drawableLeft="@drawable/ic_vec_alarme_on"
         android:gravity="center_vertical"
-        android:text="@string/home_alarme_on"
+        android:text="@string/home_alarme_on_fr"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_height="170dp"
         android:drawableTop="@drawable/ic_vec_profil"
         android:gravity="center_vertical"
-        android:text="@string/profil"
+        android:text="@string/profil_fr"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.607"
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="@string/home_date"
+        android:text="@string/home_date_fr"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_logs" />
 
@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="@string/home_hour"
+        android:text="@string/home_hour_fr"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_date" />
 
@@ -83,7 +83,17 @@
         android:layout_margin="20dp"
         android:text=":D"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />" />
+        app:layout_constraintStart_toStartOf="parent" />
+    <Spinner
+        android:id="@+id/language_list"
+        android:layout_width="256dp"
+        android:layout_height="26dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_hour"
+        app:layout_constraintVertical_bias="0.856" />
 
     <Button
         android:id="@+id/btn_logout"
