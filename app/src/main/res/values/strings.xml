@@ -1,19 +1,40 @@
 <resources>
-    <string name="app_name">LaPorte_Alarme</string>
 
     <!-- Affichage -->
-    <string name="home_title">ALARME LA PORTE</string>
-    <string name="home_alarme_on">Alarme Activé</string>
-    <string name="home_alarme_off">Alarme Desactivé</string>
     <string name="logs">Logs</string>
-    <string name="profil">Profil</string>
-    <string name="home_hour">12:00</string>
-    <string name="home_date">1er Janvier 2000</string>
-    <string name="alarme_intru">Intrusion!</string>
-    <string name="alarme_dismiss">Fermer</string>
-    <string name="retour">Retour</string>
-    <string name="courrielLabel">Courriel</string>
-    <string name="nomLabel">Nom</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="hour">Time</string>
+
+    <!-- Affichage FR -->
+    <string name="app_name_fr">LaPorte Alarme</string>
+    <string name="home_title_fr">ALARME LA PORTE</string>
+    <string name="home_alarme_on_fr">Alarme Activé</string>
+    <string name="home_alarme_off_fr">Alarme Desactivé</string>
+    <string name="profil_fr">Profil</string>
+    <string name="home_hour_fr">12:00</string>
+    <string name="home_date_fr">1er Janvier 2000</string>
+    <string name="alarme_intru_fr">Intrusion!</string>
+    <string name="alarme_dismiss_fr">Fermer</string>
+    <string name="retour_fr">Retour</string>
+    <string name="courrielLabel_fr">Courriel</string>
+    <string name="nomLabel_fr">Nom</string>
+
+    <!-- Affichage EN -->
+    <string name="app_name_en">TheDoor Alarm</string>
+    <string name="home_title_en">ALARM THE DOOR</string>
+    <string name="home_alarme_on_en">Alarm Activated</string>
+    <string name="home_alarme_off_en">Alarm Desactivated</string>
+    <string name="profil_en">Profile</string>
+    <string name="home_hour_en">12:00</string>
+    <string name="home_date_en">1st January 2000</string>
+    <string name="alarme_intru_en">Intrusion!</string>
+    <string name="alarme_dismiss_en">Dismiss</string>
+    <string name="back_en">Back</string>
+    <string name="mailLabel_en">Mail</string>
+    <string name="nameLabel_en">Name</string>
+
+    <!-- Valeur d'affichage -->
     <string name="courrielEntry">thomasBaudry@cegep.ca</string>
     <string name="nomEntry">Thomas Baudry</string>
 

@@ -34,6 +34,17 @@ class LogsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_logs)
 
+        // Variable
+        val btnRetour: Button = findViewById<Button>(R.id.buttonBack)
+        val langue = intent.getStringExtra("langue")
+        //Affichage Langue
+        //Affichage du texte avec la langue selectionné
+        if(langue == "French"){
+            btnRetour.text = getString(R.string.retour_fr)
+        }else{
+            btnRetour.text = getString(R.string.back_en)
+        }
+
         // Appel à l'API pour récupéré les logs.
         fun makeHttpRequest(urlString: String): String {
             if (Build.VERSION.SDK_INT > 9) {
@@ -126,7 +137,7 @@ class LogsActivity : AppCompatActivity() {
         val listeLogs = data.toList()
         afficherLogs(listeLogs)
 
-        val btnRetour: Button = findViewById<Button>(R.id.buttonBack)
+        // Retour a la page d'Accueil
         btnRetour.setOnClickListener {
             finish()
         }
